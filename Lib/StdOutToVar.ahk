@@ -1,12 +1,13 @@
-﻿StdOutToVar( sCmd ) { ;  GAHK32 ; Modified Version : SKAN 05-Jul-2013  http://goo.gl/j8XJXY                             
+; Edited by Masonjar13 to be compatible with 32 and 64-bit (2015)
+StdOutToVar( sCmd ) { ;  GAHK32 ; Modified Version : SKAN 05-Jul-2013  http://goo.gl/j8XJXY                             
   Static StrGet := "StrGet"     ; Original Author  : Sean 20-Feb-2007  http://goo.gl/mxCdn  
    
   DllCall( "CreatePipe", UIntP,hPipeRead, UIntP,hPipeWrite, UInt,0, UInt,0 )
   DllCall( "SetHandleInformation", UInt,hPipeWrite, UInt,1, UInt,1 )
 
   if(a_ptrSize=8){
-    VarSetCapacity( STARTUPINFO, 104, 0  )      ; STARTUPINFO          ;  http://goo.gl/fZf24
-    NumPut( 68,         STARTUPINFO,  0 )      ; cbSize
+    VarSetCapacity( STARTUPINFO, 104, 0 )      ; STARTUPINFO          ;  http://goo.gl/fZf24
+    NumPut( 104,        STARTUPINFO,  0 )      ; cbSize
     NumPut( 0x100,      STARTUPINFO, 60 )      ; dwFlags    =>  STARTF_USESTDHANDLES = 0x100 
     NumPut( hPipeWrite, STARTUPINFO, 88 )      ; hStdOutput
     NumPut( hPipeWrite, STARTUPINFO, 96 )      ; hStdError
