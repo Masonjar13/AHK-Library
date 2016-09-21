@@ -31,7 +31,7 @@ randStr(lowerBound,upperBound,mode=1){
         else if(t=3)
             str.=rand(0,9)
         else if(t=4){
-            i:=rand(1,3)
+            i:=rand(1,4)
             str.=i=1?chr(rand(33,47)):i=2?chr(rand(58,64)):i=3?chr(rand(91,96)):chr(rand(123,126))
         }
     }
