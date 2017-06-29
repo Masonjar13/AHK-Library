@@ -1,12 +1,10 @@
-﻿externalIP(){
+externalIP(){
     ipInfo:={}
-    ipInfoList:=["ip","city","country","region","isp"]
+    ipInfoList:=["ip","city","country","region","isp","latitude","longitude","hostname","asn"]
     ipPage:=urlDownloadToVar("http://dazzlepod.com/ip/me.json")
+    
     for i,a in ipInfoList{
-        if(a="isp")
-            regExMatch(ipPage,"U)""organization"": "".* - \K.*(?=,)",t)
-        else
-            regExMatch(ipPage,"U)""" a """: ""\K.*(?="")",t)
+        regExMatch(ipPage,"U)""" . (a="isp"?"organization":a) . """: ""\K[^""]+(?="")",t)
         ipInfo.insert(a,t)
     }
     return ipInfo
