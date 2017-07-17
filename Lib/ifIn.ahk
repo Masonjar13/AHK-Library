@@ -1,5 +1,4 @@
-﻿ifIn(haystack,needle){
+﻿ifIn(needle,haystack){
     if needle in %haystack%
         return 1
-    return 0
 }
