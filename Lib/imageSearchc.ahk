@@ -1,21 +1,20 @@
 ﻿#include <Gdip_All>
-imageSearchc(ByRef out1, ByRef out2, x1, y1, x2, y2, image, vari=0, trans="",direction=5,debug=0){
-    dxoff:=0
-    dyoff:=0
-    ptok:=Gdip_Startup()
-    imageB:=Gdip_CreateBitmapFromFile(image)
-    Scrn:=Gdip_Bitmapfromscreen(x1 "|" y1 "|" x2 - x1 "|" y2 - y1)
+
+imageSearchc(byRef out1,byRef out2,x1,y1,x2,y2,image,vari=0,trans="",direction=5,debug=0){
+    static ptok:=gdip_startup()
+    imageB:=gdip_createBitmapFromFile(image)
+    scrn:=gdip_bitmapfromscreen(x1 "|" y1 "|" x2 - x1 "|" y2 - y1)
     if(debug)
-        Gdip_SaveBitmapToFile(Scrn, a_now ".png")
-    Errorlev:=Gdip_ImageSearch(Scrn,imageB,tempxy,0,0,0,0,vari,trans,direction)
-    Gdip_DisposeImage(Scrn)
-    Gdip_DisposeImage(imageB)
-    Gdip_Shutdown(ptok)
-    if(Errorlev > 0)
+        gdip_saveBitmapToFile(scrn,a_now . ".png")
+    errorlev:=gdip_imageSearch(scrn,imageB,tempxy,0,0,0,0,vari,trans,direction)
+    gdip_disposeImage(scrn)
+    gdip_disposeImage(imageB)
+
+    if(errorlev)
     {
         out:=StrSplit(tempxy,"`,")
-        out1:=out[1] + x1 - dxoff
-        out2:=out[2] + y1 - dyoff
+        out1:=out[1] + x1
+        out2:=out[2] + y1
         return % Errorlev
     }
     return 0
