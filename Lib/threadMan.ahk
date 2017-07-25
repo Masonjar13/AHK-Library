@@ -1,4 +1,6 @@
-﻿#include <_MemoryLibrary>
+; Requires _MemoryLibrary and readResource()
+
+#include <_MemoryLibrary>
 
 class threadMan {
     ahkDllPath:=
