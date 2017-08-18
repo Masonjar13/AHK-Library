@@ -9,7 +9,7 @@ externalIP(ip:="me"){
             ipInfo.insert(a,t)
         }
         return ipInfo
-    }else if(regExMatch(ip,"^([0-9a-fA-F]{1,4}(::?|$)){2,8}")){
+    }else if(regExMatch(ip,"i)^([0-9A-F]{1,4}(::?|$)){2,8}")){
         ipInfoList:=["ip","city","country","region","isp","loc","hostname","postal"]
         ipPage:=urlDownloadToVar("http://ipinfo.io/" . ip . "/json")
         
