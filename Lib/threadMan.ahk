@@ -1,15 +1,14 @@
-; Requires _MemoryLibrary and readResource()
-
-#include <_MemoryLibrary>
+﻿#include <_MemoryLibrary>
 
 class threadMan {
     ahkDllPath:=
     dllObj:=
     tHandle:=
+    quitTimeout:=1000
     
     ; meta-functions
     
-    __New(ahkDllPath="",isResource=0){
+    __New(ahkDllPath,isResource=0){
         this.ahkDllPath:=ahkDllPath
         if(isResource)
             readResource(dlldata,ahkDllPath)
@@ -19,7 +18,7 @@ class threadMan {
     }
     
     __Delete(){
-        this.quit()
+        this.quit(this.quitTimeout)
         this.dllObj.free()
         this.dllObj:=this.tHandle:=""
     }
@@ -70,11 +69,23 @@ class threadMan {
         return dllCall(this.dllObj.getProcAddress("ahkExecuteLine"),"UPtr",linePointer,"UInt",mode,"UInt",wait,"Cdecl UPtr")
     }
     
-    execLabel(label,wait=""){
+    execLabel(label,wait=0){
         return dllCall(this.dllObj.getProcAddress("ahkLabel"),"Str",label,"UInt",wait,"Cdecl UInt")
     }
     
     execFunc(func,params*){
-        return dllCall(this.dllObj.getProcAddress("ahkFunction"),"Str",func,params*)
+        return dllCall(this.dllObj.getProcAddress("ahkFunction"),"Str",func,params*,"Cdecl UInt")
+    }
+    
+    execAFunc(func,params*){
+        return dllCall(this.dllObj.getProcAddress("ahkPostFunction"),"Str",func,params*,"Cdecl UInt")
+    }
+    
+    varSet(varName,varVal){
+        return dllCall(this.dllObj.getProcAddress("ahkassign"),"Str",varName,"Str",varVal)
+    }
+
+    varGet(varName,pointer=0){
+        return dllCall(this.dllObj.getProcAddress("ahkgetvar"),"Str",varName,"UInt",pointer,"Cdecl Str")
     }
 }
