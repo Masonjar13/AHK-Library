@@ -1,5 +1,28 @@
-externalIP(ip:="me"){
+﻿/* returned object keys
+    ip
+    city
+    country
+    countryCode
+    region
+    regionCode
+    isp
+    tz (timezone)
+    zip (postal code)
+*/
+
+externalIP(ip:=""){
     ipInfo:={}
+    ipInfoList:={ip:"ip",city:"city",country:"country_name",countryCode:"countryCode",region:"region",regionCode:"region_code",isp:"org",lat:"latitude",long:"longitude",asn:"asn",tz:"timezone",zip:"postal"}
+    ipPage:=urlDownloadToVar("https://ipapi.co/" . (ip?ip . "/":"") . "json")
+    
+    for i,a in ipInfoList{
+        regExMatch(ipPage,"Um)""" . a . """: ""?\K[^"",]+(?=""|,)",t)
+        ipInfo[i]:=t
+    }
+    
+    return ipInfo
+    
+    /*
     if(ip="me" || regExMatch(ip,"^(\d{1,3}\.){3}\d{1,3}$")){
         ipInfoList:=["ip","city","country","region","isp","latitude","longitude","hostname","asn"]
         ipPage:=urlDownloadToVar("http://dazzlepod.com/ip/" . ip . ".json")
@@ -21,6 +44,8 @@ externalIP(ip:="me"){
             else
                 ipInfo.insert(a,t)
         }
+        
         return ipInfo
     }
+    */
 }
