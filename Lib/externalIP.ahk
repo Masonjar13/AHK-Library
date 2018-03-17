@@ -11,13 +11,12 @@
 */
 
 externalIP(ip:=""){
-    ipInfo:={}
     ipInfoList:={ip:"ip",city:"city",country:"country_name",countryCode:"countryCode",region:"region",regionCode:"region_code",isp:"org",lat:"latitude",long:"longitude",asn:"asn",tz:"timezone",zip:"postal"}
     ipPage:=urlDownloadToVar("https://ipapi.co/" . (ip?ip . "/":"") . "json")
     
     for i,a in ipInfoList{
         regExMatch(ipPage,"Um)""" . a . """: ""?\K[^"",]+(?=""|,)",t)
-        ipInfo[i]:=t
+        ipInfoList[i]:=t
     }
     
     return ipInfo
