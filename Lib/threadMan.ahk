@@ -61,19 +61,56 @@ class threadMan {
         dllCall(this.dllObj.getProcAddress("ahkReload"))
     }
     
+    pause(pauseState:="tog"){
+        if(pauseState="tog"){
+            pauseState:=!this.pauseState()
+            ;pauseState:=!pauseState
+        }
+        pauseState:=dllCall(this.dllObj.getProcAddress("ahkPause"),"Str",pauseState,"Cdecl Int")
+        return pauseState
+    }
+    
+    pauseState(){
+        return dllCall(this.dllObj.getProcAddress("ahkPause"),"Str","","Cdecl Int")
+    }
+    
+    state(){
+        running:=this.status()
+        if(running){
+            pauseState:=this.pauseState()
+            suspendState:=this.varGet("a_isSuspended")
+            return pauseState?(suspendState?"P/S":"Paused"):(suspendState?"Suspended":"Running")
+        }
+        return "Stopped"
+    }
+    
     exec(codeStr){
-        return dllCall(this.dllObj.getProcAddress("ahkExec"),"Str",codeStr)
+        if(this.pauseState())
+            msgbox,,Error,Code can not be executed while thread is paused.
+        else
+            return dllCall(this.dllObj.getProcAddress("ahkExec"),"Str",codeStr)
     }
     
     execLine(linePointer="",mode="",wait=""){
-        return dllCall(this.dllObj.getProcAddress("ahkExecuteLine"),"UPtr",linePointer,"UInt",mode,"UInt",wait,"Cdecl UPtr")
+        if(this.pauseState())
+            msgbox,,Error,Code can not be executed while thread is paused.
+        else
+            return dllCall(this.dllObj.getProcAddress("ahkExecuteLine"),"UPtr",linePointer,"UInt",mode,"UInt",wait,"Cdecl UPtr")
     }
     
     execLabel(label,wait=0){
-        return dllCall(this.dllObj.getProcAddress("ahkLabel"),"Str",label,"UInt",wait,"Cdecl UInt")
+        if(this.pauseState())
+            msgbox,,Error,Code can not be executed while thread is paused.
+        else
+            return dllCall(this.dllObj.getProcAddress("ahkLabel"),"Str",label,"UInt",wait,"Cdecl UInt")
     }
     
     execFunc(func,params*){
+        if(this.pauseState()){
+            msgbox,,Error,Code can not be executed while thread is paused.
+            return
+        }
+        
         if(!params.length())
             return dllCall(this.dllObj.getProcAddress("ahkFunction"),"Str",func,"Cdecl UInt")
         if(params.length()=1)
