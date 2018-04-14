@@ -10,9 +10,9 @@ class threadMan {
     
     __New(ahkDllPath,isResource=0){
         this.ahkDllPath:=ahkDllPath
-        if(isResource)
-            readResource(dlldata,ahkDllPath)
-        else
+;        if(isResource)
+;            readResource(dlldata,ahkDllPath)
+;        else
             fileRead,dlldata,% "*c " . ahkDllPath
         this.dllObj:=new _MemoryLibrary(&dlldata)
     }
@@ -35,6 +35,17 @@ class threadMan {
         if(this.status())
             return 1
         this.tHandle:=dllCall(this.dllObj.getProcAddress("ahkdll"),"Str",filePath,"Str",options,"Str",params,"Cdecl UPtr")
+    }
+    
+    addScript(codeStr,execute=0){
+        return dllCall(this.dllObj.getProcAddress("addScript"),"Str",codeStr,"Uchar",execute,"Cdecl UPtr")
+    }
+    
+    ; ignoreError: 0=signal an error if there was problem adding file
+    ;              1=ignore error
+    ;              2=remove script lines added by previous calls to addFile() and start executing at the first line in the new script
+    addFile(filePath,includeAgain=0,ignoreError=0){
+        return dllCall(this.dllObj.getProcAddress("addFile"),"Str",filePath,"Uchar",includeAgain,"Uchar",ignoreError,"Cdecl UPtr")
     }
     
     waitQuit(timeout="",sleepAccuracy=100){
