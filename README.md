@@ -30,6 +30,9 @@
     * **Description**<br>
         Removes the "file came from another computer" security flag on a specified file.
 * [getCurrentTime()](Lib/getCurrentTime.ahk)
+    * **Requirements**<br>
+    [urlDownloadToVar()](Lib/urlDownloadToVar.ahk)<br>
+    [strToLower()](Lib/strToLower.ahk)
     * **Description**<br>
         Retrieves the current time of the specified [region of a] country. Utilizing the boolean `countryIsTimezone` parameter, the `country` parameter may be a timezone acronym instead.
 * [getImageSize()](Lib/getImageSize.ahk)
@@ -42,6 +45,9 @@
     * **Description**<br>
         Returns the path[s] of selected file[s] when using a file explorer.
 * [getUTCOffset()](Lib/getUTCOffset.ahk)
+    * **Requirements**<br>
+    [urlDownloadToVar()](Lib/urlDownloadToVar.ahk)<br>
+    [strToLower()](Lib/strToLower.ahk)
     * **Description**<br>
         Retrieves the UTC offset of a timezone.
 * [getWinClientSize()](Lib/getWinClientSize.ahk)
