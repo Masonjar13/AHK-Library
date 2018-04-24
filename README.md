@@ -136,6 +136,8 @@
     * **Description**<br>
         Checks if the mouse is over a specified window.
 * [muteWindow()](Lib/muteWindow.ahk)
+   * **Requirements**<br>
+       [VA](Required-Libraries/VA.ahk)
     * **Description**<br>
         Mutes, unmutes, or toggles mute state for a specified window in the volume mixer.
 * [nicRestart()](Lib/nicRestart.ahk)
@@ -168,6 +170,11 @@
         [strI()](Lib/strI.ahk)
     * **Description**<br>
         Performs an inverted (end to start) [regExReplace](https://autohotkey.com/docs/commands/RegExReplace.htm).
+* [setWindowVol()](Lib/setWindowVol.ahk)
+   * **Requirements**<br>
+       [VA](Required-Libraries/VA.ahk)
+   * **Description**<br>
+       Sets the volume for a specified window in the volume mixer.
 * [StdOutStream()](Lib/StdOutStream.ahk)
     * **Description**<br>
         Creates a callback for all standard output lines of a program.
