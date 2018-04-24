@@ -178,7 +178,7 @@
 * [StdOutStream()](Lib/StdOutStream.ahk)
     * **Description**<br>
         Creates a callback for all standard output lines of a program.
-* [StdOutVar()]](Lib/StdOutVar.ahk)
+* [StdOutVar()](Lib/StdOutVar.ahk)
     * **Description**<br>
         Returns all standard output of a program.
 * [strI()](Lib/strI.ahk)
