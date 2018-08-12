@@ -24,6 +24,7 @@
         while(!this.file.atEOF){
             this.file.seek(dataLen,1)
             varSetCapacity(keyStr,4,0)
+            varSetCapacity(keyLen,4,0)
             offset:=this.file.pos
             keyLen:=this.file.readUInt() ; read key len
             dataLen:=this.file.readUInt() ; read data len
@@ -36,15 +37,18 @@
     }
     
     get(key){
-        varSetCapacity(dataStr,4,0)
+        varSetCapacity(keyLen,4,0)
+        varSetCapacity(dataLen,4,0)
         offset:=this._findKey(key)
         if(offset=-1)
             return
         this.file.seek(offset,0)
         keyLen:=this.file.readUInt()
         dataLen:=this.file.readUInt()
+        varSetCapacity(dataStr,dataLen,0)
         this.file.seek(keyLen,1)
         this.file.rawRead(dataStr,dataLen)
+        varSetCapacity(dataStr,-1)
         this.b64d(nStr,dataStr)
         return nStr
     }
@@ -56,6 +60,7 @@
             else
                 return -1
         }
+        varSetCapacity(dataStr,4,0)
         this.b64e(nStr,str)
         this.file.seek(0,2)
         this.file.writeUInt(strLen(key)*2) ; key len
@@ -70,9 +75,11 @@
         tFile.seek(3,0)
         
         while(!this.file.atEOF){
+            varSetCapacity(keyStr,strLen(key)*2,0)
+            varSetCapacity(dataLen,4,0)
+            
             keyLen:=this.file.readUInt()
             dataLen:=this.file.readUInt()
-            
             this.file.rawRead(keyStr,keyLen)
             varSetCapacity(keyStr,-1)
             varSetCapacity(dataLen,-1)
@@ -82,7 +89,6 @@
                 continue
             }
             this.file.rawRead(dataStr,dataLen)
-            ;tfile.rawWrite(keyLen . dataLen . keyStr . dataStr,keyLen + dataLen + 8)
             tFile.writeUInt(keyLen)
             tFile.writeUInt(dataLen)
             tFile.rawWrite(keyStr,keyLen)
@@ -102,6 +108,9 @@
         
         while(!this.file.atEOF && key!=keyStr){
             this.file.seek(dataLen,1)
+            varSetCapacity(keyStr,strLen(key)*2,0)
+            varSetCapacity(keyLen,4,0)
+            varSetCapacity(dataLen,4,0)
             offset:=this.file.pos
             keyLen:=this.file.readUInt() ; read key len
             dataLen:=this.file.readUInt() ; read data len
