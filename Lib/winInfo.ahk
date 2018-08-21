@@ -6,5 +6,5 @@
     winGetClass,awc,% winName
     winGet,awhwnd,ID,% winName
     winGet,awcl,controlList,% winName
-    return:="Window Name: " . awn . "`nW/H: " . aww . "x" . awh . "`nX/Y: " . awx . "," . awy . "`nClass: " . awc . "`nProcess: " . awp . "`nPID: " . awpid . "`nHWND: " . awhwnd . "`nControl List:`n" . awcl
+    return "Window Name: " . awn . "`nW/H: " . aww . "x" . awh . "`nX/Y: " . awx . "," . awy . "`nClass: " . awc . "`nProcess: " . awp . "`nPID: " . awpid . "`nHWND: " . awhwnd . "`nControl List:`n" . awcl
 }
