@@ -53,7 +53,7 @@
 | [processPriority()](Lib/processPriority.ahk) | Returns the priority level of a given process/PID. |
 | [rand()](Lib/rand.ahk) | Wrap for [random](https://autohotkey.com/docs/commands/Random.htm). |
 | [randStr()](Lib/randStr.ahk) | Generates a random string of a given length, with options to include any combination of lowercase, uppercase, digits, and symbols. |
-| [readHotkeys()[Lib/readHotkeys.ahk) | Creates a list of all hotkeys/hotstrings and directives from a script file (from disk, not active). |
+| [readHotkeys()](Lib/readHotkeys.ahk) | Creates a list of all hotkeys/hotstrings and directives from a script file (from disk, not active). |
 | [regExMatchI()](Lib/regExMatchI.ahk) | **Requires:** [strI()](Lib/strI.ahk)<br><br>Performs an inverted (end to start) [regExMatch](https://autohotkey.com/docs/commands/RegExMatch.htm). |
 | [regExReplaceI()](Lib/regExReplaceI.ahk) | **Requires:** [strI()](Lib/strI.ahk)<br><br>Performs an inverted (end to start) [regExReplace](https://autohotkey.com/docs/commands/RegExReplace.htm). |
 | [setWindowVol()](Lib/setWindowVol.ahk) | **Requires:** [VA](Required-Libraries/VA.ahk)<br><br>Sets the volume for a specified window in the volume mixer. |
