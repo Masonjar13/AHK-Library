@@ -1,5 +1,11 @@
 ﻿#include <VA>
 
+/* example:
+setWindowVol("ahk_exe vlc.exe",50) ; set it to 50%
+setWindowVol("ahk_exe vlc.exe","+10") ; set it to +10 percent of its current volume
+setWindowVol("ahk_exe vlc.exe","-10") ; set it to -10 percent of its current volume
+*/
+
 setWindowVol(winName:="a",vol:="n"){
     if(vol=="n")
         return
