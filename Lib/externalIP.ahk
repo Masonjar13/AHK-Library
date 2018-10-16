@@ -19,7 +19,7 @@ externalIP(ip:=""){
         ipInfoList[i]:=t
     }
     
-    return ipInfo
+    return ipInfoList
     
     /*
     if(ip="me" || regExMatch(ip,"^(\d{1,3}\.){3}\d{1,3}$")){
