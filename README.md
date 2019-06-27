@@ -45,6 +45,7 @@
 | [msToM()](Lib/msToM.ahk) | Converts milliseconds into minutes. |
 | [msToS()](Lib/msToS.ahk) | Converts milliseconds into seconds. |
 | [mToMs()](Lib/mToMs.ahk) | Converts minutes into milliseconds. |
+| [multiKeyStates()](Lib/multiKeyStates.ahk) | Allows to check for multiple key states at a time, keeping the return boolean to match getKeyState(). |
 | [mouseOverWin()](Lib/mouseOverWin.ahk) | Checks if the mouse is over a specified window. |
 | [muteWindow()](Lib/muteWindow.ahk) | **Requires:** [VA](Required-Libraries/VA.ahk)<br><br>Mutes, unmutes, or toggles mute state for a specified window in the volume mixer. |
 | [nicRestart()](Lib/nicRestart.ahk) | **Requires:** [nicSetState()](Lib/nicSetState.ahk)<br><br>Disables and re-enables a specified network adapter. |
