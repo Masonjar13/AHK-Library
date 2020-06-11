@@ -79,3 +79,8 @@
 | [IEObj](Lib/IEObj.ahk) | Contains an instance of IE via COM, with methods that wrap basic interactions, such as URL navigation. Features extensive error catching. |
 | [threadMan](Lib/threadMan.ahk) | **Requires:** [_MemoryLibrary](Required-Libraries/_MemoryLibrary.ahk), [_Struct](Required-Libraries/_Struct.ahk), [AutoHotkey.dll](https://hotkeyit.github.io/v2) (v1 zip download)<br><br>Wraps functionality of AutoHotkey.dll to allow multi-threading with AHK v1.1. |
 | [db](Lib/db.ahk) | Base DB class, with methods for reading, writing, and removing key-value pairs to/from a file. |
+
+## Other
+| Name | Description |
+| ------------------------------------- | --------------------------------------------------------- |
+| [functionalAHK](Lib/functionalAHK.ahk) | Wraps all AHK commands, so functions may be used instead. |
