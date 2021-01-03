@@ -1,4 +1,35 @@
-﻿StdOutStream( sCmd, Callback = "" ) { ; Modified  :  SKAN 31-Aug-2013 http://goo.gl/j8XJXY                             
+﻿/* Written by SKAN, HotKeyIt, and Sean, modified by Masonjar13
+
+	Open a stream to a stdout of a given batch command.
+
+	Parameters:
+---------------
+	sCmd: batch command to execute
+	
+	Callback (optional): function name to call back to each time
+		the stream receives output.
+		
+	return: if callback was omitted, the entire output will be here
+---------------
+
+	Example:
+------------
+StdOutStream("ping 1.1.1.1","toolT")
+return
+
+esc::exitApp
+
+toolT(output,index) {
+	static sOutput
+	sOutput.="`n" index ": " output
+	tooltip,% sOutput:=trim(sOutput," `n")
+}
+------------
+
+*/
+
+; Edited by Masonjar13 to be compatible with 32 and 64-bit (2015)
+StdOutStream( sCmd, Callback = "" ) { ; Modified  :  SKAN 31-Aug-2013 http://goo.gl/j8XJXY                             
   Static StrGet := "StrGet"           ; Thanks to :  HotKeyIt         http://goo.gl/IsH1zs                                   
                                       ; Original  :  Sean 20-Feb-2007 http://goo.gl/mxCdn
                                     

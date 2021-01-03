@@ -1,3 +1,21 @@
+/* Written by SKAN and Sean, modified by Masonjar13
+
+	Return all stdout of a given batch command.
+
+	Parameters:
+---------------
+	sCmd: batch command to execute
+	
+	return: stdout data
+---------------
+
+	Example:
+------------
+msgbox % StdOutToVar("ping 1.1.1.1")
+------------
+
+*/
+
 ; Edited by Masonjar13 to be compatible with 32 and 64-bit (2015)
 StdOutToVar( sCmd ) { ;  GAHK32 ; Modified Version : SKAN 05-Jul-2013  http://goo.gl/j8XJXY                             
   Static StrGet := "StrGet"     ; Original Author  : Sean 20-Feb-2007  http://goo.gl/mxCdn  
