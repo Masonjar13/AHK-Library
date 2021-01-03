@@ -59,7 +59,7 @@
 | [regExReplaceI()](Lib/regExReplaceI.ahk) | **Requires:** [strI()](Lib/strI.ahk)<br><br>Performs an inverted (end to start) [regExReplace](https://autohotkey.com/docs/commands/RegExReplace.htm). |
 | [setWindowVol()](Lib/setWindowVol.ahk) | **Requires:** [VA](Required-Libraries/VA.ahk)<br><br>Sets the volume for a specified window in the volume mixer. |
 | [StdOutStream()](Lib/StdOutStream.ahk) | Creates a callback for all standard output lines of a program. |
-| [StdOutVar()](Lib/StdOutVar.ahk) | Returns all standard output of a program. |
+| [StdOutToVar()](Lib/StdOutToVar.ahk) | Returns all standard output of a program. |
 | [strI()](Lib/strI.ahk) | Inverts a given string. |
 | [strReplaceI()](Lib/strReplaceI.ahk) | **Requires:** [strI()](Lib/strI.ahk)<br><br>Performs an inverted (end to start) [strReplace](https://autohotkey.com/docs/commands/StringReplace.htmunction). |
 | [strToLower()](Lib/strToLower.ahk) | Wrap for [stringLower](https://autohotkey.com/docs/commands/StringLower.htm). |
