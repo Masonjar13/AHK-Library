@@ -6,7 +6,7 @@
 | Function | Description |
 |--------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | [binSearch()](Lib/binSearch.ahk) | Performs a binary search on a given index-based object. |
-| [borderlessMode()](Lib/borderlessMode.ahk) | Toggles AlwaysOnTop an caption for a specified window (active window, if unspecified). |
+| [borderlessMode()](Lib/borderlessMode.ahk) | Toggles AlwaysOnTop and caption for a specified window (active window, if unspecified). |
 | [borderlessMove()](Lib/borderlessMove.ahk) | Enables click-and-drag movement for windows without captions. |
 | [checkSession()](Lib/checkSession.ahk) | Creates a callback for user session messages, such as logging off or locking the session. |
 | [commaFormat()](Lib/commaFormat.ahk) | Performs a comma format on numbers, eg., `123456789.12345 > 123,456,789.12345`. |
