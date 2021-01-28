@@ -6,7 +6,7 @@
 ---------------
 	url: url to download from
 	
-	raw (optional): retern content as text (0, default) or raw binary (1)
+	raw (optional): return content as text (0, default) or raw binary (1)
 	
 	userAgent (optional): a valid useragent string to be used during
 		the http request
