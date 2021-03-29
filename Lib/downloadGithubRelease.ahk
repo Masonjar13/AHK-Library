@@ -4,7 +4,7 @@
 
 	Dependencies:
 		urlDownloadToVar()
-			https://github.com/Masonjar13/AHK-Library/blob/cfd102530c5d1160abbc25699c936b4512a6f860/Lib/urlDownloadToVar.ahk
+			https://github.com/Masonjar13/AHK-Library/blob/master/Lib/urlDownloadToVar.ahk
 -----------------
 
 	Parameters:
