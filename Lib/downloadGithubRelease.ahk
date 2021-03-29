@@ -34,7 +34,6 @@ downloadGithubRelease(repoName,dir:="",searchText:=""){
 	local
 	regExNeedle:="<div class=""d-flex flex-justify-between flex-items-center py-1 py-md-2 Box-body px-2"">\s+<a href=""\K[^""]+"
 	latestPg:=urlDownloadToVar("https://github.com/" repoName "/releases/latest")
-	clipboard:=latestPg
 	hrefO:=[],pos:=1
 	loop {
 		pos:=regExMatch(latestPg,regExNeedle,href,pos + (href[a_index-1]?strLen(href[a_index-1]):0))
