@@ -41,6 +41,6 @@ setWindowVol(winName:="a",vol:="n"){
 		else if (vsign="-")
 			vol:=cvol-vol<0?0:cvol-vol
 	} else
-		vol/=100
+		vol/=100.0
 	VA_ISimpleAudioVolume_SetMasterVolume(volume,vol),objRelease(volume)
 }
