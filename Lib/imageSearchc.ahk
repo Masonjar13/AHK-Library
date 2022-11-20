@@ -23,9 +23,9 @@
 	
 	image: path to image file to search the screen for
 	
-	vari (optional): variation level
+	vari (optional): variation level (0-255)
 	
-	trans (optional): color to treat as transparent
+	trans (optional): hexadecimal color value to treat as transparent
 	
 	direction (optional): direction to search
 		Vertical preference:
